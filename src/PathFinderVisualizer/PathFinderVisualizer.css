@@ -8,9 +8,16 @@
 }
 
 .pathfinder-visualizer {
+    margin-top: 3%;
     flex-direction: column;
 }
 
-.animate-dijkstra-button {
-    
-}
+@media only screen and (max-width: 480px) {
+    .pathfinder-visualizer {
+        flex-direction: row;
+    }
+    .row {
+        flex-direction: column;
+    }
+  }
+  
