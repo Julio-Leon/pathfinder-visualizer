@@ -47,10 +47,11 @@ const PathFinderVisualizer = () => {
       }, (15 * i))
     }
 
-    setTimeout(() => {
-      createPath(response[1])
-    }, (15 * visitedNodesInOrder.length))
-
+    if (response[1].distance !== Infinity) {
+      setTimeout(() => {
+        createPath(response[1])
+      }, (15 * visitedNodesInOrder.length))
+    }
   }
 
   const createPath = (endNode) => {
