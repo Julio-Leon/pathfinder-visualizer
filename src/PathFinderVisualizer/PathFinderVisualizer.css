@@ -1,0 +1,12 @@
+* {
+    background-color: black;
+    color: white;
+}
+
+.flex-container {
+    display: flex;
+}
+
+.pathfinder-visualizer {
+    flex-direction: column;
+}
