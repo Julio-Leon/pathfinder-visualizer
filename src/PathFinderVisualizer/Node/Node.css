@@ -23,3 +23,12 @@
 .is-path {
     background-color: purple;
 }
+
+@media only screen and (max-width: 480px) {
+    .node {
+        border: 1px solid white;
+        height: 5px;
+        width: 5px;
+    }
+  }
+  
