@@ -17,10 +17,9 @@ export const dijkstra = (grid, startNode, endNode) => {
         unvisitedNodes.sort((a, b) => a.distance - b.distance)
         const currentNode = unvisitedNodes.shift()
 
-        if (currentNode.endNode) {
-            console.log('DONE')
-            return visitedNodesInOrder
-        }
+        if (currentNode.isBarrier) continue
+
+        if (currentNode.endNode) return [visitedNodesInOrder, currentNode]
 
         visitedNodesInOrder.push(currentNode)
 

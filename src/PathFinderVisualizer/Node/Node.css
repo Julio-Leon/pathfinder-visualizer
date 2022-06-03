@@ -11,3 +11,15 @@
 .end-node {
     background-color: red;
 }
+
+.visited-node {
+    background-color: blue;
+}
+
+.is-barrier {
+    background-color: white;
+}
+
+.is-path {
+    background-color: purple;
+}
