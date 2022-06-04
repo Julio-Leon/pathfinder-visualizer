@@ -8,8 +8,13 @@
 }
 
 .pathfinder-visualizer {
+    flex-direction: column;
+}
+
+.grid {
     margin-top: 3%;
     flex-direction: column;
+    border: 1px solid white;
 }
 
 @media only screen and (max-width: 480px) {

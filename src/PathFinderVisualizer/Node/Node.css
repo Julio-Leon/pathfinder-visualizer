@@ -1,16 +1,25 @@
 @keyframes stretch {
-    0% {
-      transform: scale(.3);
-      background-color: black;
-      border-radius: 100%;
-    }
-    50% {
-      background-color: greenyellow;
-    }
-    100% {
-      transform: scale(1.5);
-      background-color: blue;
-    }
+  0% {
+    transform: scale(.3);
+    background-color: black;
+    border-radius: 100%;
+  }
+  20% {
+    background-color: yellowgreen;
+  }
+  40% {
+    background-color: blueviolet;
+  }
+  60% {
+    background-color: royalblue;
+  }
+  80% {
+    background-color: orange;
+  }
+  100% {
+    transform: scale(1.25);
+    background-color: blue;
+  }
 }
 
 @keyframes stretch-path {
@@ -19,11 +28,20 @@
       background-color: black;
       border-radius: 100%;
     }
-    50% {
+    20% {
       background-color: red;
     }
+    40% {
+      background-color: blue;
+    }
+    60% {
+      background-color: pink;
+    }
+    80% {
+      background-color: salmon;
+    }
     100% {
-      transform: scale(1.5);
+      transform: scale(1.25);
       background-color: purple;
     }
 }
@@ -37,14 +55,16 @@
 
 .start-node {
     background-color: green;
+    border-radius: 50%;
 }
 
 .end-node {
     background-color: red;
+    border-radius: 50%;
 }
 
 .visited-node {
-    background-color: black;
+    background-color: blue;
     animation-name: stretch;
     animation-duration: 1.5s; 
     animation-timing-function: ease-out; 
