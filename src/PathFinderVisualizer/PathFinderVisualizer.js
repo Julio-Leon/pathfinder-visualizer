@@ -19,6 +19,15 @@ const PathFinderVisualizer = () => {
   const END_NODE_COL = 45
 
   const createGrid = () => {
+
+    const pastGrid = document.querySelectorAll('.visited-node')
+    for (let i = 0; i < pastGrid.length; i++) {
+      pastGrid[i].classList.remove('visited-node')
+    }
+
+    setMouseIsDown(false)
+    setWeHaveStartNode(true)
+    setWeHaveEndNode(true)
     const newGrid = [];
     for (let i = 0; i < 30; i++) {
       const newRow = [];
@@ -65,7 +74,6 @@ const PathFinderVisualizer = () => {
         createPath(response[1])
       }, (15 * visitedNodesInOrder.length))
     }
-
   }
 
   const createPath = (endNode) => {
@@ -106,7 +114,8 @@ const PathFinderVisualizer = () => {
               })
           }
         </div>
-        <button className="animate-dijkstra-button" onClick={animateDijkstra}>Animate!</button>
+        <button className="animate-dijkstra-button" onClick={animateDijkstra}>Animate</button>
+        <button onClick={createGrid}>Reset</button>
     </div>
   )
 };
@@ -125,6 +134,6 @@ export default PathFinderVisualizer;
 
 // Add weights
 
-// Add reset button!
+// Add reset button! ***
 
 // Add interesting patterns defaults
