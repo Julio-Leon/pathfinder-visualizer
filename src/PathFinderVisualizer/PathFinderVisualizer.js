@@ -49,6 +49,21 @@ const PathFinderVisualizer = () => {
     setGrid(newGrid)
   }
 
+  const randomizeBarriers = () => {
+    createGrid()
+    const tempGrid = grid.map((row, i) => {
+      return row.map((node, j) => {
+        if (node.startNode || node.endNode) return node
+        const ran = Math.random()
+        if (ran <= 0.35) {
+          node.isBarrier = true
+        }
+        return node
+      })
+    })
+    setGrid(tempGrid)
+  }
+
   useEffect(() => {
     createGrid()
   }, []);
@@ -66,13 +81,13 @@ const PathFinderVisualizer = () => {
         if (!element.classList.contains('start-node')) {
           element.classList.add('visited-node')
         }
-      }, (15 * i))
+      }, (5 * i))
     }
 
     if (response[1].distance !== Infinity) {
       setTimeout(() => {
         createPath(response[1])
-      }, (15 * visitedNodesInOrder.length))
+      }, (5 * visitedNodesInOrder.length))
     }
   }
 
@@ -116,6 +131,7 @@ const PathFinderVisualizer = () => {
         </div>
         <button className="animate-dijkstra-button" onClick={animateDijkstra}>Animate</button>
         <button onClick={createGrid}>Reset</button>
+        <button onClick={randomizeBarriers}>Randomize</button>
     </div>
   )
 };
