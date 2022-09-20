@@ -50,13 +50,31 @@ const PathFinderVisualizer = () => {
   }
 
   const randomizeBarriers = () => {
-    createGrid()
+
+    const pastGrid = document.querySelectorAll('.visited-node')
+    for (let i = 0; i < pastGrid.length; i++) {
+      pastGrid[i].classList.remove('visited-node')
+    }
+
     const tempGrid = grid.map((row, i) => {
       return row.map((node, j) => {
+        node.isPath = false
         if (node.startNode || node.endNode) return node
+
+        if (node.row === START_NODE_ROW + 1 && node.col === START_NODE_COL)  return node
+        if (node.row === START_NODE_ROW - 1 && node.col === START_NODE_COL) return node
+        if (node.row === START_NODE_ROW && node.col === START_NODE_COL + 1) return node
+        if (node.row === START_NODE_ROW && node.col === START_NODE_COL - 1) return node
+        if (node.row === START_NODE_ROW + 1 && node.col === START_NODE_COL + 1) return node
+        if (node.row === START_NODE_ROW - 1 && node.col === START_NODE_COL - 1) return node
+        if (node.row === START_NODE_ROW + 1 && node.col === START_NODE_COL - 1) return node
+        if (node.row === START_NODE_ROW - 1 && node.col === START_NODE_COL + 1) return node
+
         const ran = Math.random()
         if (ran <= 0.35) {
           node.isBarrier = true
+        } else {
+          node.isBarrier = false
         }
         return node
       })
